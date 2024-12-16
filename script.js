@@ -25,11 +25,45 @@ function createClone(){
     return newShadowClone;
 }
 
+function createRasengan() {
+    let rasengan = document.createElement('div');
+
+    
+    rasengan.style.width = '50px';
+    rasengan.style.height = '50px';
+    rasengan.style.background = 'url("./images/rasengan.jpg")';
+    rasengan.style.backgroundSize = 'cover'
+    rasengan.style.backgroundPosition = 'center'
+    rasengan.style.position = 'absolute';
+
+    return rasengan;
+}
+
+function addRasenganToScreen(x, y, rasengan){
+    let ras = rasengan;
+
+    ras.style.top = y+"px";
+    ras.style.left = x+"px";
+
+    return ras;
+}
+
 function addEventToShadowClone(clone){
-    clone.addEventListener('click', () => {
+    clone.addEventListener('click', (event) => {
+
+        let ras = createRasengan();
         
+        let rasengan = addRasenganToScreen(event.pageX, event.pageY, ras);
+        gameboard.appendChild(ras);
+
         clone.remove();
-        updateScore()
+        updateScore();
+
+        setInterval(() => {
+            ras.remove()
+        }, 100);
+        
+    
     })
 
     return clone;
