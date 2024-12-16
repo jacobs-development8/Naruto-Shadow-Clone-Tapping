@@ -1,0 +1,15 @@
+nav {
+    min-height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eb8f46;
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+}
+
+#game-board {
+    height: 80vh;
+    width: 100%;
+}
